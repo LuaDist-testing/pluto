@@ -106,6 +106,30 @@ coroutine.resume(uvinthread)
 niinmt = { a = 3 }
 setmetatable(niinmt, {__newindex = function(key, val) end })
 
+
+
+
+local function GenerateObjects()
+   local Table = {}
+
+   function Table:Func()
+       return { Table, self }
+   end
+
+   function uvcycle()
+       return Table:Func()
+   end
+end
+
+GenerateObjects()
+
+
+
+function debuginfo(foo)
+	foo = foo + foo
+	return debug.getlocal(1,1)
+end
+
 rootobj = {
 	testfalse = false,
 	testtrue = true,
@@ -131,7 +155,9 @@ rootobj = {
 	testspudata2 = boxboolean(false),
 	testsharedupval = makecounter(),
 	testuvinthread = uvinthread,
-	testniinmt = niinmt
+	testniinmt = niinmt,
+	testuvcycle = uvcycle,
+	testdebuginfo = debuginfo
 }
 
 buf = pluto.persist(perms, rootobj)

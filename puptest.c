@@ -46,6 +46,18 @@ static int LUAF_boxboolean(lua_State *L)
 	return 1;
 }
 
+static int LUAF_onerror(lua_State *L)
+{
+
+	const char* str = 0;
+	if(lua_gettop(L) != 0)
+	{
+		str = lua_tostring(L, -1);
+		printf("%s\n",str);
+	}
+	return 0;
+}
+
 int main()
 {
 	lua_State* L = lua_open();
@@ -57,8 +69,11 @@ int main()
 	lua_register(L, "unboxinteger", LUAF_unboxinteger);
 	lua_register(L, "boxboolean", LUAF_boxboolean);
 	lua_register(L, "unboxboolean", LUAF_unboxboolean);
+	lua_register(L, "onerror", LUAF_onerror);
 
-	(void)luaL_dofile(L, "puptest.lua");
+	lua_pushcfunction(L, LUAF_onerror);
+	luaL_loadfile(L, "puptest.lua");
+	lua_pcall(L,0,0,1);
 
 	lua_close(L);
 

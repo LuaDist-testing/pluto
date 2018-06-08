@@ -1,5 +1,13 @@
 $Id$
 
+-- 2.4 --
+* Changed upval unboxing to allow upvals which contain func-housed cycles
+* Added stack checking to all stack-growing functions
+* Serialized debug information for functions
+
+-- 2.3 --
+* Added LUALIB_API declaration for luaopen_pluto
+
 -- 2.2 --
 * Rolled all internal Lua dependencies into the Pluto distribution
 * Made the unit tests depend on dynamically loading Pluto

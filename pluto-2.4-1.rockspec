@@ -1,16 +1,16 @@
 -- This file was automatically generated for the LuaDist project.
 
 package="pluto"
-version="2.2-1"
+version="2.4-1"
 -- LuaDist source
 source = {
-  tag = "2.2-1",
+  tag = "2.4-1",
   url = "git://github.com/LuaDist-testing/pluto.git"
 }
 -- Original source
 -- source = {
---    url = "http://luaforge.net/frs/download.php/3151/pluto-2.2.tar.gz",
---    md5 = "f80788c69490c5569b613765a35e331f",
+--    url = "http://luaforge.net/frs/download.php/3309/pluto-2.4.tar.gz",
+--    md5 = "bf64eb8f5e8c295a5d56ee735ecef550",
 -- }
 description = {
    summary = "Heavy duty persistence for Lua",

@@ -5,7 +5,7 @@ CFLAGS= -g3 -Wall -ansi -pedantic
 
 LIBTOOL=libtool --tag=CC
 
-default: pptest puptest
+default: pluto.so pptest puptest
 
 %.lo: %.c
 	$(LIBTOOL) --mode=compile cc $(CFLAGS) -c $<
